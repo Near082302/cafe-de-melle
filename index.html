@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- ===================================================================
+         ADDED: SEO METADATA FOR GOOGLE SEARCH & SOCIAL MEDIA SHARING
+         =================================================================== -->
+    <title>Cafe de Melle | Specialty Coffee & Artisanal Pastries in Caloocan</title>
+    <meta name="description" content="Visit Cafe de Melle in Caloocan for artisanal pastries, specialty coffee, and refreshing fruit sodas. Order via GrabFood or drop by our cozy shop!">
+    <meta name="keywords" content="Cafe de Melle, Caloocan Coffee Shop, Specialty Coffee, Spanish Latte, Korean Garlic Bun, Caloocan Cafe">
+    <meta name="author" content="Cafe de Melle">
+    
+    <!-- Open Graph Tags (Controls Facebook/Messenger Preview Link Cards) -->
+    <meta property="og:title" content="Cafe de Melle - Specialty Coffee & Artisanal Pastries">
+    <meta property="og:description" content="Handcrafted coffee, freshly-baked pastries, and fruit refreshers. Visit us in Caloocan or order on GrabFood!">
+    <meta property="og:image" content="images/Logo.jpg">
+    <meta property="og:type" content="website">
+
+    <!-- Schema.org JSON-LD (Teaches Google your exact business location & store info) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CafeOrCoffeeShop",
+      "name": "Cafe de Melle",
+      "image": "images/Logo.jpg",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Kabatuhan, Brgy 168",
+        "addressLocality": "Caloocan",
+        "addressRegion": "Metro Manila",
+        "countryName": "PH"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 14.735,
+        "longitude": 121.018
+      },
+      "url": "https://cafedemelle.com",
+      "priceRange": "₱50 - ₱200",
+      "servesCuisine": "Coffee, Bakery, Pastries"
+    }
+    </script>
+
+    <!-- LINK TO EXTERNAL CSS STYLESHEET -->
+    <link rel="stylesheet" href="index.css">
+
+    <!-- ✏️ FIX / LESSON: Updated Favicon Tag with valid mime type -->
+    <link rel="icon" type="image/jpeg" href="images/Logo.jpg">
+</head>
+<body>
+
+    <!-- ===================================================================
+         1. NAVBAR & STORE STATUS BADGE
+         =================================================================== -->
+    <header class="navbar">
+        <div class="logo-container">
+            <!-- ✏️ EDIT HERE: Change Brand Name -->
+            <a href="#home" class="logo">Cafe de Melle</a>
+
+            <!-- Store Hours Status Badge (Updated automatically by index.js) -->
+            <div id="store-status" class="status-badge">Checking hours...</div>
+        </div>
+
+        <!-- ✏️ EDIT HERE: Navigation Links -->
+        <nav class="nav-links" id="nav-links">
+            <a href="#home" class="nav-item active">Home</a>
+            <a href="#menu" class="nav-item">Menu</a>
+            <a href="#about" class="nav-item">About Us</a>
+            <a href="#location" class="nav-item">Location</a>
+            <a href="#socials" class="nav-item">Connect</a>
+            <a href="#grab" class="nav-item">Order via Grab</a>
+            <a href="#reviews" class="nav-item">Reviews</a>
+        </nav>
+
+        <!-- Mobile Hamburger Toggle Button -->
+        <button class="hamburger" id="hamburger-btn" aria-label="Toggle Navigation">☰</button>
+    </header>
+
+    <main>
+
+        <!-- ===================================================================
+             2. HERO ANNOUNCEMENT SLIDER
+             =================================================================== -->
+        <section id="home" class="hero-section">
+            <div class="hero-overlay"></div>
+            
+            <div class="hero-content">
+                <span class="hero-tag">Special Announcement</span>
+                <h1 id="hero-title">Good coffee, great bread, even better moments</h1>
+                <p id="hero-subtitle">Specialty coffee, artisanal pastries, and fruit sodas where you can enjoy your quality time.</p>
+                
+                <div class="hero-buttons">
+                    <a href="#menu" class="btn">Explore Menu</a>
+                    <a href="#grab" class="btn btn-grab">Order on Grab 🛵</a>
+                </div>
+            </div>
+
+            <!-- Carousel Dot Indicators -->
+            <div class="slider-dots">
+                <span class="dot active" onclick="setSlide(0)"></span>
+                <span class="dot" onclick="setSlide(1)"></span>
+                <span class="dot" onclick="setSlide(2)"></span>
+            </div>
+        </section>
+
+
+        <!-- ===================================================================
+             3. MENU SECTION WITH SEARCH & CATEGORY FILTERS
+             =================================================================== -->
+        <section id="menu" class="page-section">
+            <div class="section-container">
+                <h2 class="section-title">Our Menu</h2>
+
+                <!-- Search Input Box Container -->
+                <div class="search-container">
+                    <input type="text" id="menu-search" placeholder="🔍 Search for coffee, pastries, sodas..." aria-label="Search Menu Items" />
+                </div>
+
+                <!-- Category Filter Buttons -->
+                <div class="filter-container">
+                    <button class="filter-btn active" data-category="all">All Items</button>
+                    <button class="filter-btn" data-category="hot-coffee">🔥 Hot Coffee</button>
+                    <button class="filter-btn" data-category="iced-coffee">🧊 Iced Coffee</button>
+                    <button class="filter-btn" data-category="non-coffee">🥛 Non-Coffee</button>
+                    <button class="filter-btn" data-category="pastry">🥐 Pastries</button>
+                    <button class="filter-btn" data-category="soda">🍹 Fruit Sodas</button>
+                </div>
+
+                <!-- MENU CARDS GRID -->
+                <div class="menu-grid" id="menu-grid">
+                    
+                    <!-- --- HOT COFFEES --- -->
+                    <div class="card" data-category="hot-coffee">
+                        <img src="images/americano.jpg" alt="Hot Americano">
+                        <div class="card-info">
+                            <h4>Hot Americano</h4>
+                            <p>A classic coffee made with rich espresso and hot water for a bold, balanced taste.</p>
+                            <span class="price">₱100</span>
+                        </div>
+                    </div>
+
+                    <div class="card" data-category="hot-coffee">
+                        <img src="images/cappuchino.jpg" alt="Hot Cappuccino">
+                        <div class="card-info">
+                            <h4>Hot Cappuccino</h4>
+                            <p>Bold espresso blended with silky steamed milk and finished with a light, airy foam.</p>
+                            <span class="price">₱120</span>
+                        </div>
+                    </div>
+
+                    <div class="card" data-category="hot-coffee">
+                        <img src="images/cafe latte.jpg" alt="Hot Cafe Latte">
+                        <div class="card-info">
+                            <h4>Hot Cafe Latte</h4>
+                            <p>Rich espresso blended with silky steamed milk for a smooth and creamy classic.</p>
+                            <span class="price">₱135</span>
+                        </div>
+                    </div>
+
+                    <div class="card" data-category="hot-coffee">
+                        <img src="images/chocolate latte.jpg" alt="Hot Chocolate Latte">
+                        <div class="card-info">
+                            <h4>Hot Chocolate Latte</h4>
+                            <p>Creamy milk, rich chocolate, and espresso create a warm, indulgent drink you'll love.</p>
+                            <span class="price">₱130</span>
+                        </div>
+                    </div>
+
+                    <div class="card" data-category="hot-coffee">
+                        <img src="images/salted caramel latte.jpg" alt="Hot Salted Caramel Latte">
+                        <div class="card-info">
+                            <h4>Hot Salted Caramel Latte</h4>
+                            <p>Rich espresso blended with creamy milk and smooth salted caramel for a sweet and salty sip.</p>
+                            <span class="price">₱135</span>
+                        </div>
+                    </div>
+
+                    <!-- --- ICED COFFEES --- -->
+                    <div class="card" data-category="iced-coffee">
+                        <img src="images/spanish latte.jpg" alt="Iced Spanish Latte">
+                        <div class="card-info">
+                            <h4>Iced Spanish Latte</h4>
+                            <p>Creamy, smooth, and perfectly sweet, with rich espresso in every cup.</p>
+                            <span class="price">₱140</span>
+                        </div>
+                    </div>
+
+                    <div class="card" data-category="iced-coffee">
+                        <img src="images/americano.jpg" alt="Iced Americano">
+                        <div class="card-info">
+                            <h4>Iced Americano</h4>
+                            <p>A classic coffee made with rich espresso, cold water and ice for a bold taste.</p>
+                            <span class="price">₱110</span>
+                        </div>
+                    </div>
+
+                    <div class="card" data-category="iced-coffee">
+                        <img src="images/caramelmacchiato.jpg" alt="Iced Caramel Macchiato">
+                        <div class="card-info">
+                            <h4>Iced Caramel Macchiato</h4>
+                            <p>Smooth espresso blended with creamy milk and finished with rich caramel drizzle.</p>
+                            <span class="price">₱145</span>
+                        </div>
+                    </div>
+
+                    <div class="card" data-category="iced-coffee">
+                        <img src="images/butterscotch latte.jpg" alt="Iced Butterscotch Latte">
+                        <div class="card-info">
+                            <h4>Iced Butterscotch Latte</h4>
+                            <p>A creamy latte with rich, buttery sweetness of butterscotch in every sip.</p>
+                            <span class="price">₱140</span>
+                        </div>
+                    </div>
+
+                    <!-- --- PASTRIES --- -->
+                    <div class="card" data-category="pastry">
+                        <img src="images/kgb.jpeg" alt="Korean Garlic Bun">
+                        <div class="card-info">
+                            <h4>Korean Garlic Bun</h4>
+                            <p>Cream cheese bun brushed with savory garlic butter.</p>
+                            <span class="price">₱95</span>
+                        </div>
+                    </div>
+
+                    <div class="card" data-category="pastry">
+                        <img src="images/ensaymada.jpeg" alt="Classic Cheese Ensaymada">
+                        <div class="card-info">
+                            <h4>Classic Cheese Ensaymada</h4>
+                            <p>Sweet Filipino brioche topped with butter and cheese.</p>
+                            <span class="price">₱75</span>
+                        </div>
+                    </div>
+
+                    <div class="card" data-category="pastry">
+                        <img src="images/ubeensaymada.jpeg" alt="Ube Ensaymada">
+                        <div class="card-info">
+                            <h4>Ube Ensaymada</h4>
+                            <p>Ensaymada filled with sweet purple yam halaya.</p>
+                            <span class="price">₱85</span>
+                        </div>
+                    </div>
+
+                    <div class="card" data-category="pastry">
+                        <img src="images/muffin.jpeg" alt="Coffee Bun">
+                        <div class="card-info">
+                            <h4>Coffee Bun</h4>
+                            <p>Crispy coffee-crusted bun with a melted butter core.</p>
+                            <span class="price">₱70</span>
+                        </div>
+                    </div>
+
+                    <div class="card" data-category="pastry">
+                        <img src="images/croissant.jpeg" alt="Classic Butter Croissant">
+                        <div class="card-info">
+                            <h4>Butter Croissant</h4>
+                            <p>Flaky, buttery French pastry baked daily.</p>
+                            <span class="price">₱90</span>
+                        </div>
+                    </div>
+
+                    <div class="card" data-category="pastry">
+                        <img src="images/assorted donut.jpeg" alt="Assorted Cafe Doughnuts">
+                        <div class="card-info">
+                            <h4>Assorted Doughnuts</h4>
+                            <p>Classic Glazed, Boston Cream, and Chocolate Drizzle.</p>
+                            <span class="price">₱65</span>
+                        </div>
+                    </div>
+
+                    <div class="card" data-category="pastry">
+                        <img src="images/Logo.jpg" alt="Cheese Pandesal">
+                        <div class="card-info">
+                            <h4>Cheese Pandesal (3pcs)</h4>
+                            <p>Warm Filipino bread rolls stuffed with melted cheese.</p>
+                            <span class="price">₱50</span>
+                        </div>
+                    </div>
+
+                    <!-- --- NON-COFFEE --- -->
+                    <div class="card" data-category="non-coffee">
+                        <img src="images/strawberry cream milk.jpg" alt="Strawberry Cream Milk">
+                        <div class="card-info">
+                            <h4>Iced Strawberry Cream Milk</h4>
+                            <p>Fresh strawberry flavor blended with creamy milk for a sweet sip.</p>
+                            <span class="price">₱125</span>
+                        </div>
+                    </div>
+
+                    <div class="card" data-category="non-coffee">
+                        <img src="images/cookieclouddream.jpg" alt="Cookie Cloud Dream">
+                        <div class="card-info">
+                            <h4>Iced Cookie Cloud Dream</h4>
+                            <p>A smooth, creamy treat with comforting cookie flavor in every sip.</p>
+                            <span class="price">₱130</span>
+                        </div>
+                    </div>
+
+                    <div class="card" data-category="non-coffee">
+                        <img src="images/purematcha.jpg" alt="Pure Matcha">
+                        <div class="card-info">
+                            <h4>Pure Matcha</h4>
+                            <p>Earthy Japanese green tea whisked into a refreshing drink.</p>
+                            <span class="price">₱140</span>
+                        </div>
+                    </div>
+
+                    <div class="card" data-category="non-coffee">
+                        <img src="images/vanillabeanmilk.jpg" alt="Vanilla Bean Milk">
+                        <div class="card-info">
+                            <h4>Vanilla Bean Milk</h4>
+                            <p>Rich vanilla bean blended with creamy milk for a satisfying treat.</p>
+                            <span class="price">₱140</span>
+                        </div>
+                    </div>
+
+                    <!-- --- FRUIT SODAS --- -->
+                    <div class="card" data-category="soda">
+                        <img src="images/Logo.jpg" alt="Blueberry Fruit Soda">
+                        <div class="card-info">
+                            <h4>Blueberry Fruit Soda</h4>
+                            <p>Sparkling soda infused with real blueberry syrup & mint.</p>
+                            <span class="price">₱115</span>
+                        </div>
+                    </div>
+
+                    <div class="card" data-category="soda">
+                        <img src="images/Logo.jpg" alt="Strawberry Soda">
+                        <div class="card-info">
+                            <h4>Strawberry Fizz Soda</h4>
+                            <p>Bubbly, refreshing strawberry iced soda blend.</p>
+                            <span class="price">₱115</span>
+                        </div>
+                    </div>
+
+                    <div class="card" data-category="soda">
+                        <img src="images/Logo.jpg" alt="4 Seasons Soda">
+                        <div class="card-info">
+                            <h4>4 Seasons Fruit Soda</h4>
+                            <p>Tropical blend of mango, pineapple, orange & guava soda.</p>
+                            <span class="price">₱120</span>
+                        </div>
+                    </div>
+
+                    <div class="card" data-category="soda">
+                        <img src="images/Logo.jpg" alt="Raspberry Soda">
+                        <div class="card-info">
+                            <h4>Raspberry Sparkler</h4>
+                            <p>Tangy raspberry syrup topped with sparkling soda water.</p>
+                            <span class="price">₱115</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ===================================================================
+             4. ABOUT US SECTION
+             =================================================================== -->
+        <section id="about" class="page-section alt-bg">
+            <div class="section-container text-center">
+                <h2 class="section-title">About Cafe de Melle</h2>
+                <p class="description-text mb-40">
+                    Crafting memorable coffee experiences and artisanal treats for our community everyday.
+                </p>
+
+                <!-- BRAND STATS GRID -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <span class="stat-number" data-target="100">0</span><span class="stat-plus">%</span>
+                        <p class="stat-label">Artisanal Quality</p>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number" data-target="15">0</span><span class="stat-plus">+</span>
+                        <p class="stat-label">Specialty Drinks</p>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number" data-target="365">0</span><span class="stat-plus"> Days</span>
+                        <p class="stat-label">Freshly Baked Daily</p>
+                    </div>
+                </div>
+
+                <!-- STORY CAROUSEL SECTION -->
+                <div class="about-carousel">
+                    <!-- SLIDE 1 -->
+                    <div class="about-slide active">
+                        <img src="images/maincafe.jpeg" alt="Our Humble Beginnings" class="about-img">
+                        <div class="about-text">
+                            <h3>Our Beginnings</h3>
+                            <p>Welcome to Cafe de Melle! We started as a cozy neighborhood space dedicated to serving handcrafted coffee, freshly-baked pastries, and sparkling fruit refreshers.</p>
+                        </div>
+                    </div>
+
+                    <!-- SLIDE 2 -->
+                    <div class="about-slide">
+                        <img src="images/interior.jpeg" alt="Freshly Baked Everyday" class="about-img">
+                        <div class="about-text">
+                            <h3>Baked Fresh Daily</h3>
+                            <p>Every morning, our kitchen comes alive with the aroma of buttery European pastries and warm Filipino favorites like our signature Korean Garlic Bun.</p>
+                        </div>
+                    </div>
+
+                    <!-- SLIDE 3 -->
+                    <div class="about-slide">
+                        <img src="images/drinks.jpeg" alt="Crafted Coffee" class="about-img">
+                        <div class="about-text">
+                            <h3>Comfort in Every Cup</h3>
+                            <p>Whether starting your morning in our cafe or grabbing a mid-day iced coffee boost on Grab, we bring care and quality to every order.</p>
+                        </div>
+                    </div>
+
+                    <button class="about-btn prev" id="about-prev" aria-label="Previous Slide">❮</button>
+                    <button class="about-btn next" id="about-next" aria-label="Next Slide">❯</button>
+                </div>
+
+                <!-- Carousel Dot Navigation -->
+                <div class="about-dots mb-40">
+                    <span class="about-dot active" onclick="setAboutSlide(0)"></span>
+                    <span class="about-dot" onclick="setAboutSlide(1)"></span>
+                    <span class="about-dot" onclick="setAboutSlide(2)"></span>
+                </div>
+
+                <!-- CORE VALUES GRID -->
+                <h3 class="subsection-title">Why People Love Us</h3>
+                <div class="values-grid">
+                    <div class="value-card">
+                        <div class="value-icon">☕</div>
+                        <h4>Premium Beans</h4>
+                        <p>We source fine espresso beans to guarantee a smooth, rich flavor profile in every cup.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">🥐</div>
+                        <h4>Oven-Fresh Pastries</h4>
+                        <p>Baked fresh every single morning to ensure perfect flake, warmth, and savory taste.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">🚀</div>
+                        <h4>Fast & Fresh Delivery</h4>
+                        <p>Packed securely so your iced drinks stay cold and hot pastries stay warm until your door.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ===================================================================
+             5. STORE LOCATION SECTION (GOOGLE MAP EMBED)
+             =================================================================== -->
+        <section id="location" class="page-section">
+            <div class="section-container text-center">
+                <h2 class="section-title">Visit Our Store</h2>
+                <p class="description-text mb-20">
+                    📍 <strong>Address:</strong> P2R8+85R, Kabatuhan, Brgy 168, Caloocan, Metro Manila
+                </p>
+                
+                <div class="map-container">
+                    <iframe 
+                        src="https://maps.google.com/maps?q=P2R8%2B85R%2C%20Kabatuhan%2C%20Brgy%20168%2C%20Caloocan%2C%20Metro%20Manila&t=&z=16&ie=UTF8&iwloc=&output=embed" 
+                        width="100%" 
+                        height="380" 
+                        title="Cafe de Melle Google Maps Location"
+                        loading="lazy"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ===================================================================
+             6. SOCIAL MEDIA CONNECT SECTION
+             =================================================================== -->
+        <section id="socials" class="page-section alt-bg">
+            <div class="section-container text-center">
+                <h2 class="section-title">Follow Us & Stay Connected!</h2>
+                <p class="description-text mb-20">
+                    Catch our latest coffee drops, promos, and announcements on our official social media pages:
+                </p>
+
+                <div class="social-buttons-container">
+                    <a href="https://www.facebook.com/profile.php?id=61588216101905" target="_blank" rel="noopener noreferrer" class="btn btn-facebook">
+                        📘 Follow on Facebook
+                    </a>
+                    <a href="https://www.instagram.com/cafe.demelle/" target="_blank" rel="noopener noreferrer" class="btn btn-instagram">
+                        📸 Follow on Instagram
+                    </a>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ===================================================================
+             7. GRAB ORDER INSTRUCTIONS SECTION
+             =================================================================== -->
+        <section id="grab" class="page-section">
+            <div class="section-container text-center">
+                <h2 class="section-title">How to Order via Grab</h2>
+                
+                <div class="steps-grid">
+                    <div class="step-card">
+                        <div class="step-number">1</div>
+                        <h4>Open Grab Food</h4>
+                        <p>Search for "Cafe de Melle".</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">2</div>
+                        <h4>Pick Your Drinks</h4>
+                        <p>Choose your coffee, pastries, or sodas.</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">3</div>
+                        <h4>Enjoy Delivery</h4>
+                        <p>Fast delivery directly to your home!</p>
+                    </div>
+                </div>
+                
+                <a href="https://food.grab.com" target="_blank" rel="noopener noreferrer" class="btn btn-grab">Order Now on Grab App ↗</a>
+            </div>
+        </section>
+
+
+        <!-- ===================================================================
+             8. REVIEWS SECTION
+             =================================================================== -->
+        <section id="reviews" class="page-section alt-bg">
+            <div class="section-container text-center">
+                <h2 class="section-title">Customer Reviews</h2>
+                
+                <div class="reviews-grid">
+                    <div class="review-card">
+                        <img src="images/matcha.jpeg" alt="Customer Photo" class="review-avatar">
+                        <div class="star-rating">⭐⭐⭐⭐⭐</div>
+                        <p>"The coffees are great, the Korean garlic bun is a must get!"</p>
+                        <h5>— Maria S.</h5>
+                    </div>
+
+                    <div class="review-card">
+                        <img src="images/hot salted caramel.jpeg" alt="Customer Photo" class="review-avatar">
+                        <div class="star-rating">⭐⭐⭐⭐⭐</div>
+                        <p>"Super fast Grab delivery and the packaging was super neat. 10/10!"</p>
+                        <h5>— Mark T.</h5>
+                    </div>
+
+                    <div class="review-card">
+                        <img src="images/Logo.jpg" alt="Customer Photo" class="review-avatar">
+                        <div class="star-rating">⭐⭐⭐⭐⭐</div>
+                        <p>"Best Spanish Latte in Metro Manila! Perfect sweetness level."</p>
+                        <h5>— Angela P.</h5>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Cafe de Melle. All Rights Reserved.</p>
+    </footer>
+
+    <script src="index.js"></script>
+</body>
+</html>
